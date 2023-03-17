@@ -1,5 +1,6 @@
 package com.example.kinozippyv3.controller;
 
+import com.example.kinozippyv3.dto.UserResponse;
 import com.example.kinozippyv3.model.User;
 import com.example.kinozippyv3.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,9 +18,10 @@ public class UserController {
   UserService userService;
 
   @GetMapping("/users")
-  public List<User> findUsers(){
-    return userService.userRepository.findAll();
+  public List<UserResponse> findUsers(){
+    return userService.all();
   }
+
 
   @PostMapping("/user")
   public User createUser(@RequestBody User user){
