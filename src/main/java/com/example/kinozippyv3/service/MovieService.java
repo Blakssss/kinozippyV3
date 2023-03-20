@@ -13,4 +13,8 @@ public class MovieService {
     return movieRepository.save(movie);
   }
 
+  public void deleteMovie(Long id) {
+  }
+
+  public Movie updateMovie(Long id, Movie movie) { return movieRepository.save(movie); }
 }
