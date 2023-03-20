@@ -2,31 +2,31 @@ package com.example.kinozippyv3.model;
 
 import jakarta.persistence.*;
 
+import java.util.HashSet;
+import java.util.Set;
+
 @Entity
 public class Showing {
 
   @Id
-  private int seat;
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  private int id;
 
-  @OneToOne
+  @ManyToOne
   @JoinColumn(name = "movie", referencedColumnName = "title")
   private Movie movie;
 
-  @OneToOne
-  @JoinColumn(name = "id", referencedColumnName = "id")
-  private User user;
 
   public Showing() {
 
   }
 
-
-  public int getSeat() {
-    return seat;
+  public int getId() {
+    return id;
   }
 
-  public void setSeat(int seat) {
-    this.seat = seat;
+  public void setId(int id) {
+    this.id = id;
   }
 
   public Movie getMovie() {
@@ -37,20 +37,10 @@ public class Showing {
     this.movie = movie;
   }
 
-  public User getUser() {
-    return user;
-  }
-
-  public void setUser(User user) {
-    this.user = user;
-  }
-
-  public Showing(int seat, Movie movie, User user) {
-    this.seat = seat;
+  public Showing(int id, Movie movie) {
+    this.id = id;
     this.movie = movie;
-    this.user = user;
   }
-
 }
 
 
