@@ -2,6 +2,7 @@ package com.example.kinozippyv3.model;
 
 import jakarta.persistence.*;
 
+@Entity
 public class Booking {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -13,10 +14,25 @@ public class Booking {
   @ManyToOne
   private Showing showing;
 
-  public Booking(int id, User user, Showing showing) {
+  private String seat;
+
+  public Booking(int id, User user, Showing showing, String seat) {
     this.id = id;
     this.user = user;
     this.showing = showing;
+    this.seat = seat;
+  }
+
+  public String getSeat() {
+    return seat;
+  }
+
+  public void setSeat(String seat) {
+    this.seat = seat;
+  }
+
+  public Booking() {
+
   }
 
   public int getId() {
