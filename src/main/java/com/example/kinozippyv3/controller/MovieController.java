@@ -26,4 +26,14 @@ public class MovieController {
     return movieService.createMovie(movie);
   }
 
+  @DeleteMapping("/movie")
+  public void deleteMovie(@RequestParam String title){
+    movieService.deleteMovie(title);
+  }
+
+  @PutMapping("/movie")
+  public Movie updateMovie(@RequestParam String title, @RequestBody Movie movie){
+    return movieService.updateMovie(title, movie);
+  }
+
 }

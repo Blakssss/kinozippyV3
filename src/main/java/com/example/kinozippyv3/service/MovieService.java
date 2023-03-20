@@ -13,4 +13,8 @@ public class MovieService {
     return movieRepository.save(movie);
   }
 
+  public void deleteMovie(String title) {
+  }
+
+  public Movie updateMovie(String title, Movie movie) { return movieRepository.save(movie); }
 }
