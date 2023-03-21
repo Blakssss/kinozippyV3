@@ -8,25 +8,41 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Service
 public class UserService {
-  @Autowired
-  public UserRepository userRepository;
-  public User createUser(User user){
-    return userRepository.save(user);
-  }
+    @Autowired
+    public UserRepository userRepository;
 
-  public List<UserResponse> all() {
-    List<User> users = userRepository.findAll();
-    List<UserResponse> responses = new ArrayList<UserResponse>();
-    for (int i = 0; i < users.size(); i++) {
-      UserResponse userResponse = new UserResponse(users.get(i));
-      responses.add(userResponse);
+    public User createUser(User user) {
+        return userRepository.save(user);
     }
-    return responses;
-    //return users.stream().map(u->new UserResponse(u)).collect(Collectors.toList());
-  }
+
+    public List<UserResponse> all() {
+        List<User> users = userRepository.findAll();
+        List<UserResponse> responses = new ArrayList<UserResponse>();
+        for (int i = 0; i < users.size(); i++) {
+            UserResponse userResponse = new UserResponse(users.get(i));
+            responses.add(userResponse);
+        }
+        return responses;
+        //return users.stream().map(u->new UserResponse(u)).collect(Collectors.toList());
+    }
+
+    public void deleteUser(int id) {
+        userRepository.deleteById(id);
+    }
+
+    public void updateUser(int id, User newUser) {
+        User user = userRepository.findById(id).get();
+
+        newUser.setUsername(user.getUsername());
+        newUser.setPassword(user.getPassword());
+
+        userRepository.save(user);
+
+
+
+    }
 
 }
