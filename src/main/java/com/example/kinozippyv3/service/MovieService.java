@@ -12,9 +12,5 @@ public class MovieService {
   public Movie createMovie(Movie movie){
     return movieRepository.save(movie);
   }
-
-  public void deleteMovie(String title) {
-  }
-
-  public Movie updateMovie(String title, Movie movie) { return movieRepository.save(movie); }
+  
 }
