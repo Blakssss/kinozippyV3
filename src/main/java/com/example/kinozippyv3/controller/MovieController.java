@@ -32,19 +32,13 @@ public class MovieController {
     return movieService.createMovie(movie);
   }
 
-  /*
-  @PutMapping("/movie/{title}")
-  public ResponseEntity<Movie> updateCount(@PathVariable String title, @RequestBody Movie movie) {
-    Optional<Movie> optMovie = movieRepository.findById(title);
-    if (optMovie.isPresent()) {
-      movieRepository.save(movie);
-      return new ResponseEntity<>(movie, HttpStatus.OK);
-    } else {
-      return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-    }
+
+  @PutMapping("/movie")
+  public Movie updateCount(@RequestBody Movie movie) {
+      return movieRepository.save(movie);
 
   }
-  */
+
 
 
 }
