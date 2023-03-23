@@ -32,6 +32,7 @@ public class MovieController {
     return movieService.createMovie(movie);
   }
 
+  /*
   @PutMapping("/movie/{title}")
   public ResponseEntity<Movie> updateCount(@PathVariable String title, @RequestBody Movie movie) {
     Optional<Movie> optMovie = movieRepository.findById(title);
@@ -43,5 +44,7 @@ public class MovieController {
     }
 
   }
+  */
+
 
 }
