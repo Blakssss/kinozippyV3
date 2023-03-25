@@ -1,6 +1,7 @@
 package com.example.kinozippyv3.model;
 
 
+import com.example.kinozippyv3.repository.UserRepository;
 import jakarta.persistence.*;
 
 @Entity
